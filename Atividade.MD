@@ -26,7 +26,7 @@ a mensagem "O Personagem está morto".
 Devem respeitar um valor entre 0 e 99, inclusive estes valores. Para qualquer valor diferente,
 deverá ser lançada uma "PersonagemException" com a mensagem "Dado de entrada inválido".
 
-##Atenção! Crie os Getters e Setters que forem necessário para cumprir com os requisitos indicados
+## Atenção! Crie os Getters e Setters que forem necessário para cumprir com os requisitos indicados
 
 ## Interface
 Dentro de um pacote <code>local.template</code>, crie uma interface <code>PersonagemDAO</code>, que deverá conter as 
