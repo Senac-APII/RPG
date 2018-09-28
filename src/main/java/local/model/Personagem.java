@@ -1,5 +1,10 @@
 package local.model;
-
+/*
+import local.exception.NomePersonagemException;
+import local.exception.PersonagemException;
+import local.exception.VidaException;
+import local.template.PersonagemDAO;
+*/
 public abstract class Personagem {
 
     protected String nome;
