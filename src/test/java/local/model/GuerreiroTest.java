@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -90,6 +90,74 @@ public class GuerreiroTest {
         }catch (VidaException ex){
             assertThat(ex.getMessage(),is(equalTo("O Personagem está morto")));
         }
+    }
+
+    @Test
+    public void validaResistenciaLimiteAceitavel(){
+        Personagem p = new Guerreiro("Zezão");
+        p.setResistencia(99);
+        assertThat(p.getResistencia(),is(equalTo(99)));
+    }
+    @Test
+    public void validaResistenciaBaseAceitavel(){
+        Personagem p = new Guerreiro("Zezão");
+        p.setResistencia(0);
+        assertThat(p.getResistencia(),is(equalTo(0)));
+    }
+    @Test
+    public void validaResistenciaBaseNaoAceitavel(){
+        Personagem p = new Guerreiro("Zezão");
+        try {
+            p.setResistencia(-1);
+            fail("Não deveria aceitar um valor menor do que 0");
+        }catch (PersonagemException ex) {
+            assertThat(ex.getMessage(),is(equalTo("Dado de entrada inválido")));
+        }
+    }
+
+    @Test
+    public void validaResistenciaLimiteNaoAceitavel(){
+        Personagem p = new Guerreiro("Zezão");
+        try {
+            p.setResistencia(100);
+            fail("Não deveria aceitar um valor menor do que 0");
+        }catch (PersonagemException ex) {
+            assertThat(ex.getMessage(),is(equalTo("Dado de entrada inválido")));
+        }
+    }
+
+    @Test
+    public void validaEsquivaBaseAceitavel(){
+        Personagem p = new Guerreiro("Snow");
+        p.setEsquiva(0);
+        assertThat(p.getEsquiva(),is(equalTo(0)));
+    }
+
+    @Test
+    public void validaEsquivaBaseNaoAceitavel(){
+        Personagem p = new Guerreiro("Snow");
+        try {
+            p.setEsquiva(-1);
+        }catch (PersonagemException ex) {
+            assertThat(ex.getMessage(), is(equalTo("Dado de entrada inválido")));
+        }
+    }
+
+    @Test
+    public void validaEsquivaLimiteNaoAceitavel(){
+        Personagem p = new Guerreiro("Snow");
+        try {
+            p.setEsquiva(100);
+        }catch (PersonagemException ex) {
+            assertThat(ex.getMessage(), is(equalTo("Dado de entrada inválido")));
+        }
+    }
+
+    @Test
+    public void validaEsquivaLimiteAceitavel(){
+        Personagem p = new Guerreiro("Snow");
+        p.setEsquiva(99);
+        assertThat(p.getEsquiva(),is(equalTo(99)));
     }
 
     @Test
